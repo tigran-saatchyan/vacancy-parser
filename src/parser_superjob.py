@@ -1,11 +1,11 @@
 import requests
 
 from src.constants import SUPER_JOB_API_SECRET
-from src.engine_abc import Engine
+from src.parser import Parser
 
 
-class SuperJob(Engine):
-    def get_vacancies(self, keyword):
+class SuperJobParser(Parser):
+    def parse_vacancies(self, keyword):
         parameters = {
             'keywords[0][srws]': 1,
             'keywords[0][skwc]': 'or',
