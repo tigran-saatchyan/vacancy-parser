@@ -1,11 +1,11 @@
 import requests
 
-from src.engine_abc import Engine
+from src.parser import Parser
 
 
-class HH(Engine):
+class HHParser(Parser):
 
-    def get_vacancies(self, keyword):
+    def parse_vacancies(self, keyword):
         parameters = {
             'page': 0,
             'per_page': 10,
@@ -13,7 +13,7 @@ class HH(Engine):
         }
 
         headers = {
-            'HH-User-Agent': 'VacanSer/1.0 (mr.saatchyan@yandex.com)'
+            'HHParser-User-Agent': 'Vacant/1.0 (mr.saatchyan@yandex.com)'
         }
 
         response = requests.get(

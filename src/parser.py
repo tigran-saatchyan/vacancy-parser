@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 
 
-class Engine(ABC):
+class Parser(ABC):
 
     @abstractmethod
-    def get_vacancies(self, keyword):
+    def parse_vacancies(self, keyword):
         pass
