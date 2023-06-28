@@ -23,7 +23,9 @@ class Vacancy:
         self._salary_from: int = salary_from
         self._salary_to: int = salary_to
         self._currency: str = currency
-        self._description: str = description
+        self._description: str = (
+            description[:200] if len(description) > 200 else description
+        ) if description is not None else "Missing description"
         self._avg_salary: int = 0
 
         if isinstance(salary_from, int):
@@ -76,8 +78,8 @@ class Vacancy:
             f'Platform: {self._platform}\n'
             f'ID: {self._id}\n'
             f'Title: {self._title}\n'
-            f'Salary: {self._salary_from} {self._currency.upper()} - '
-            f'{self._salary_to} {self._currency.upper()} \n'
+            f'Salary: {self._salary_from} {self._currency} - '
+            f'{self._salary_to} {self._currency} \n'
             f'Description: {self._description}\n'
             f'Link: {self._url}\n'
             f'___________________________________________________________\n'
