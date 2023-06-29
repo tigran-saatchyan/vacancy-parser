@@ -110,10 +110,10 @@ class JSONFileHandler(FileHandler):
         Loads vacancies from the JSON data based on the given parameters.
 
         Args:
-            platforms:
-            count:
-            word_to_search:
-            salary_min_max:
+            platforms (dict): The platforms to be loaded.
+            count (int): The number of vacancies to be loaded.
+            word_to_search (str): The word to be searched for.
+            salary_min_max (list): The salary range to be filtered.
 
         Returns:
             result (Dict): The loaded vacancies filtered by the given
@@ -123,6 +123,9 @@ class JSONFileHandler(FileHandler):
 
         result = {}
         for platform, vacancies in self.__data.items():
+            if platform not in platforms.values():
+                continue
+
             vacancies_obj_list = [
                 Vacancy(
                     platform=vacancy['platform'],
@@ -151,10 +154,10 @@ class JSONFileHandler(FileHandler):
         Loads vacancies from the JSON data based on the given parameters.
 
         Args:
-            platforms:
-            count:
-            word_to_search:
-            salary_min_max:
+            platforms (dict): The platforms to be loaded.
+            count (int): The number of vacancies to be loaded.
+            word_to_search (str): The word to be searched for.
+            salary_min_max (list): The salary range to be filtered.
 
         Returns:
             result (Dict): The loaded vacancies filtered by the
